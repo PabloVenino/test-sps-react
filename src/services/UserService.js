@@ -1,21 +1,50 @@
-import axios from "axios";
+import api, { user_endpoints } from "../api/index";
 
 class UserService {
   async list() {
-    const users = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
-    return users;
+    try {
+      const users = await api.get(user_endpoints.get_users);
+      return users;
+    }
+    catch(error) {
+      console.error(error)
+    }
   }
   async get(id) {
-    throw new Error("Not implemented");
+    try {
+      const user = await api.get(user_endpoints.get_user(id))
+      return user;
+    }
+    catch(error) {
+      console.error(error)
+    }
   }
   async create(data) {
-    throw new Error("Not implemented");
+    try {
+      const user = await api.post(user_endpoints.create_user, data);
+      return user;
+    }
+    catch(error) {
+      console.error(error)
+    }
   }
   async delete(id) {
-    throw new Error("Not implemented");
+    try {
+      const response = await api.delete(user_endpoints.delete_user(id))
+      return response;
+    }
+    catch(error) {
+      console.error(error)
+    }
   }
   async update(id, data) {
-    throw new Error("Not implemented");
+    try {
+      const response = await api.put(user_endpoints.update_user(id), data)
+      return response;
+    }
+    catch(error) {
+      console.error(error)
+    }
   }
 }
 

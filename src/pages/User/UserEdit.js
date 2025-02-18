@@ -11,7 +11,7 @@ export function userLoader({ params }) {
   return { user };
 }
 
-function EditUser() {
+function UserEdit() {
   const { user } = useLoaderData();
 
   return (
@@ -30,4 +30,4 @@ function EditUser() {
   );
 }
 
-export default EditUser;
+export default UserEdit;

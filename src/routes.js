@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Users from "./pages/Users";
-import UserEdit, { userLoader } from "./pages/UserEdit";
+import Users from "./pages/User/Users";
+import UserEdit, { userLoader } from "./pages/User/UserEdit";
 
 const router = createBrowserRouter([
   {
@@ -14,10 +14,10 @@ const router = createBrowserRouter([
     element: <Users />,
   },
   {
-    path: "/users/:userId",
+    path: "/users/:id",
     element: <UserEdit />,
     loader: userLoader,
-  },
+  }
 ]);
 
 export default router;
